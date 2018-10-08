@@ -12,7 +12,10 @@
 extern "C" {
 #endif
 
-void RTP_Init(void);
+#include <stdint.h>
+#include <stdlib.h>
+
+void RTP_Init(uint8_t *buffer, size_t size);
 
 #ifdef __cplusplus
 }
