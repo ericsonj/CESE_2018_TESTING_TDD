@@ -32,9 +32,10 @@ void test_RTP_AddNextSequence(void) {
   RTP_AddNextSequence(buffer, RTP_SIZE);
   initseq = (buffer[2] << 8) + (buffer[3]);
 
-  RTP_AddNextSequence(buffer, RTP_SIZE);
-  nextseq = (buffer[2] << 8) + (buffer[3]);
-
-  TEST_ASSERT_EQUAL(initseq + 1, nextseq);
-
+  for (uint16_t i = 0; i < 1500; i++) {
+    RTP_AddNextSequence(buffer, RTP_SIZE);
+    nextseq = (buffer[2] << 8) + (buffer[3]);
+    TEST_ASSERT_EQUAL(initseq + 1, nextseq);
+    initseq++;
+  }
 }
