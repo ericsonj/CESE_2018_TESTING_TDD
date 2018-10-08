@@ -10,3 +10,7 @@
 void RTP_Init(uint8_t *buffer, size_t size){
     buffer[0] = 0x80;
 }
+
+void RTP_AddNextSequence(uint8_t *buffer, size_t size){
+    
+}

@@ -17,6 +17,8 @@ extern "C" {
 
 void RTP_Init(uint8_t *buffer, size_t size);
 
+void RTP_AddNextSequence(uint8_t *buffer, size_t size);
+
 #ifdef __cplusplus
 }
 #endif
