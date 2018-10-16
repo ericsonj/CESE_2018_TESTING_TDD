@@ -63,7 +63,7 @@ void test_RTP_AddNextTimestamp(void) {
     timestamp =
         (buffer[4] << 24) + (buffer[5] << 16) + (buffer[6] << 8) + (buffer[7]);
 
-    for (uint32_t i = 20 ; i < 100; i++) {        
+    for (uint32_t i = 20 ; i < 2000; i++) {        
         RTP_AddNextTimestamp(buffer, RTP_SIZE);
         nextTimestamp =
             (buffer[4] << 24) + (buffer[5] << 16) + (buffer[6] << 8) + (buffer[7]);

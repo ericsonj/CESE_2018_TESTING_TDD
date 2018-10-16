@@ -35,5 +35,9 @@ void RTP_AddNextSequence(uint8_t *buffer, size_t size) {
 }
 
 void RTP_AddNextTimestamp(uint8_t *buffer, size_t size){
-    
+    timestamp += 20;
+    buffer[4] = (uint8_t)((timestamp & 0xFF000000) >> 24);
+    buffer[5] = (uint8_t)((timestamp & 0x00FF0000) >> 16);
+    buffer[6] = (uint8_t)((timestamp & 0x0000FF00) >> 8);
+    buffer[7] = (uint8_t)(timestamp  & 0x000000FF); 
 }
