@@ -53,3 +53,23 @@ void test_RTP_AddNextSequence(void) {
         initseq++;
     }
 }
+
+void test_RTP_AddNextTimestamp(void) {
+
+    uint32_t timestamp     = 0;
+    uint32_t nextTimestamp = 0;
+
+    RTP_AddNextTimestamp(buffer, RTP_SIZE);
+    timestamp =
+        (buffer[4] << 24) + (buffer[5] << 16) + (buffer[6] << 8) + (buffer[7]);
+
+    for (uint32_t i = 20 ; i < 100; i++) {        
+        RTP_AddNextTimestamp(buffer, RTP_SIZE);
+        nextTimestamp =
+            (buffer[4] << 24) + (buffer[5] << 16) + (buffer[6] << 8) + (buffer[7]);
+
+        TEST_ASSERT_EQUAL_MESSAGE(timestamp + 20, nextTimestamp, "Test timestamp");
+        timestamp += 20;
+    }
+
+}
