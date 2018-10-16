@@ -13,10 +13,12 @@
 
 #define RTP_SIZE 172
 
+/*
 enum RPT_PAYLOAD_TYPE{
     PCMU = 0x00,
     PCMA = 0x08
 };
+*/
 
 uint8_t buffer[RTP_SIZE];
 
@@ -31,7 +33,10 @@ void test_RTP_Init(void) {
 
 void test_RTP_AddPayload(void) {
     RTP_AddPayload(buffer, RTP_SIZE, PCMA);
-    TEST_ASSERT_EQUAL_MESSAGE(PCMA, buffer[1], "Test payload");
+    TEST_ASSERT_EQUAL_MESSAGE(PCMA, buffer[1], "Test payload PCMA");
+
+    RTP_AddPayload(buffer, RTP_SIZE, PCMU);
+    TEST_ASSERT_EQUAL_MESSAGE(PCMU, buffer[1], "Test payload PCMU");
 }
 
 void test_RTP_AddNextSequence(void) {

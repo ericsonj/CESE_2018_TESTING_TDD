@@ -14,8 +14,12 @@ void RTP_Init(uint8_t *buffer, size_t size) {
     sequence  = 0;
 }
 
-void RTP_AddPayload(uint8_t *buffer, size_t size, uint8_t payloadType){
-
+void RTP_AddPayload(uint8_t *buffer, size_t size, uint8_t payloadType) {
+    switch (payloadType) {
+    case PCMA: buffer[1] = PCMA; break;
+    case PCMU: buffer[1] = PCMU; break;
+    default: break;
+    }
 }
 
 void RTP_AddNextSequence(uint8_t *buffer, size_t size) {
