@@ -39,6 +39,11 @@ void test_RTP_AddPayload(void) {
     TEST_ASSERT_EQUAL_MESSAGE(PCMU, buffer[1], "Test payload PCMU");
 }
 
+void test_RTP_AddMark(void) {
+    RTP_AddMark(buffer, RTP_SIZE);
+    TEST_ASSERT_BITS(0x80, 0xFF, buffer[1]);
+}
+
 void test_RTP_AddNextSequence(void) {
 
     uint16_t initseq = 0;

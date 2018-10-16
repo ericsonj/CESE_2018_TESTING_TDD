@@ -22,6 +22,10 @@ void RTP_AddPayload(uint8_t *buffer, size_t size, uint8_t payloadType) {
     }
 }
 
+void RTP_AddMark(uint8_t *buffer, size_t size){
+
+}
+
 void RTP_AddNextSequence(uint8_t *buffer, size_t size) {
     sequence++;
     buffer[2] = (uint8_t)((sequence & 0xFF00) >> 8);
