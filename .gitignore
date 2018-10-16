@@ -1,1 +1,6 @@
 /RTP/build/
+GPATH
+GRTAGS
+GTAGS
+.clang_complete
+.clang-format
