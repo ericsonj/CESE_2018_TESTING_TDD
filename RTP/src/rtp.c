@@ -23,7 +23,7 @@ void RTP_AddPayload(uint8_t *buffer, size_t size, uint8_t payloadType) {
 }
 
 void RTP_AddMark(uint8_t *buffer, size_t size){
-
+    buffer[1] |= 0x80;
 }
 
 void RTP_AddNextSequence(uint8_t *buffer, size_t size) {
